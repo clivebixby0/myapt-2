@@ -1,0 +1,137 @@
+@import './colors.scss';
+
+.app.dark {
+  background-color: var(--background-primary);
+  color: var(--text-secondary);
+
+  .chartGrid {
+    stroke: var(--border-color);
+  }
+
+  .table {
+    background-color: var(--background-primary);
+
+    .tableCell {
+      color: var(--text-secondary);
+    }
+  }
+
+  .navbar {
+    color: var(--text-secondary);
+    border-color: var(--border-color);
+    background-color: var(--background-secondary);
+
+    .search {
+      border-color: var(--border-color);
+      background-color: var(--background-tertiary);
+    }
+  }
+
+  .sidebar {
+    background-color: var(--background-secondary);
+    border-color: var(--border-color);
+
+    .top {
+      .logo {
+        color: var(--primary-color);
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+    hr {
+      border-color: var(--border-color);
+    }
+
+    ul {
+      li {
+        &:hover {
+          background-color: var(--background-tertiary);
+        }
+
+        .icon {
+          color: var(--text-secondary);
+        }
+      }
+    }
+  }
+
+  .datatable {
+    .datagrid {
+      color: var(--text-secondary);
+      border: none;
+      background-color: var(--background-primary);
+
+      .viewButton,
+      .deleteButton,
+      .cellWithStatus {
+        color: var(--text-secondary);
+        border: none;
+      }
+    }
+  }
+
+  input{
+      background-color: var(--background-tertiary);
+      color: var(--text-primary);
+      border-color: var(--border-color);
+  }
+
+  // Widget styles
+  .widget {
+    background-color: var(--background-secondary);
+    box-shadow: 0 2px 4px var(--shadow-light);
+    
+    .title {
+      color: var(--text-secondary);
+    }
+    
+    .counter {
+      color: var(--text-primary);
+    }
+    
+    .link {
+      color: var(--primary-color);
+    }
+  }
+
+  // Featured component
+  .featured {
+    background-color: var(--background-secondary);
+    box-shadow: 0 2px 4px var(--shadow-light);
+    
+    .top {
+      color: var(--text-secondary);
+    }
+    
+    .title {
+      color: var(--text-secondary);
+    }
+    
+    .amount {
+      color: var(--text-primary);
+    }
+    
+    .desc {
+      color: var(--text-muted);
+    }
+  }
+
+  // Chart component
+  .chart {
+    background-color: var(--background-secondary);
+    box-shadow: 0 2px 4px var(--shadow-light);
+    color: var(--text-secondary);
+  }
+
+  // List container
+  .listContainer {
+    background-color: var(--background-secondary);
+    box-shadow: 0 2px 4px var(--shadow-light);
+    
+    .listTitle {
+      color: var(--text-secondary);
+    }
+  }
+} 

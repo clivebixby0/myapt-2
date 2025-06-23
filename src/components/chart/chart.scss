@@ -1,0 +1,21 @@
+@import '../../style/colors.scss';
+
+.chart {
+  flex: 4;
+  box-shadow: 0 2px 8px var(--shadow-light);
+  padding: 20px;
+  color: var(--text-secondary);
+  background-color: var(--background-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+
+  .title {
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .chartGrid {
+    stroke: var(--border-color);
+  }
+} 

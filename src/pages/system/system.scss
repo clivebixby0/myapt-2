@@ -1,0 +1,11 @@
+.system {
+  display: flex;
+
+  .systemContainer {
+    flex: 6;
+
+    .systemStatus {
+      padding: 20px;
+    }
+  }
+} 

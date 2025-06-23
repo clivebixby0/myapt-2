@@ -1,0 +1,11 @@
+.profile {
+  display: flex;
+
+  .profileContainer {
+    flex: 6;
+
+    .profileContent {
+      padding: 20px;
+    }
+  }
+} 

@@ -1,0 +1,12 @@
+.logs {
+  display: flex;
+
+  .logsContainer {
+    flex: 6;
+
+    .datatable {
+      height: 600px;
+      padding: 20px;
+    }
+  }
+} 

@@ -1,0 +1,77 @@
+@import '../../style/colors.scss';
+
+.widget {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  padding: 16px;
+  box-shadow: 0 2px 8px var(--shadow-light);
+  border-radius: 12px;
+  height: 100px;
+  background-color: var(--background-primary);
+  border: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+  }
+
+  .left,
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .title {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .counter {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .link {
+      width: max-content;
+      font-size: 12px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--primary-color);
+      transition: color 0.2s ease;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--primary-dark);
+      }
+    }
+
+    .percentage {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 500;
+
+      &.positive {
+        color: var(--success-color);
+      }
+      &.negative {
+        color: var(--error-color);
+      }
+    }
+
+    .icon {
+      font-size: 18px;
+      padding: 8px;
+      border-radius: 8px;
+      align-self: flex-end;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+} 

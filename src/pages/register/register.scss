@@ -1,0 +1,44 @@
+.register {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  
+  .MuiContainer-root {
+    max-width: 600px;
+  }
+  
+  .MuiPaper-root {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .MuiTextField-root {
+    .MuiOutlinedInput-root {
+      border-radius: 8px;
+      
+      &:hover .MuiOutlinedInput-notchedOutline {
+        border-color: #667eea;
+      }
+      
+      &.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border-color: #667eea;
+      }
+    }
+  }
+  
+  .MuiButton-contained {
+    border-radius: 8px;
+    text-transform: none;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  .MuiAlert-root {
+    border-radius: 8px;
+  }
+} 

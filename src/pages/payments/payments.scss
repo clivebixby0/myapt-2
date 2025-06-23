@@ -1,0 +1,12 @@
+.payments {
+  display: flex;
+
+  .paymentsContainer {
+    flex: 6;
+
+    .datatable {
+      height: 600px;
+      padding: 20px;
+    }
+  }
+} 

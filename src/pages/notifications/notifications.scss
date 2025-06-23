@@ -1,0 +1,12 @@
+.notifications {
+  display: flex;
+
+  .notificationsContainer {
+    flex: 6;
+
+    .datatable {
+      height: 600px;
+      padding: 20px;
+    }
+  }
+} 

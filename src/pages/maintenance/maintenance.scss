@@ -1,0 +1,12 @@
+.maintenance {
+  display: flex;
+
+  .maintenanceContainer {
+    flex: 6;
+
+    .datatable {
+      height: 600px;
+      padding: 20px;
+    }
+  }
+} 

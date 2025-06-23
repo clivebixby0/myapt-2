@@ -1,0 +1,74 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return request.auth != null && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Users collection - allow admins full access, users can read/write their own data
+    match /users/{userId} {
+      // Allow admins to read, write, and delete any user
+      allow read, write, delete: if request.auth != null && isAdmin();
+      
+      // Allow users to read and write their own data
+      allow read, write: if request.auth != null && 
+        (request.auth.uid == resource.data.uid || 
+         request.auth.uid == request.resource.data.uid ||
+         // Allow creation of new user documents during registration
+         (!resource.exists && request.auth.uid == request.resource.data.uid));
+    }
+    
+    // Allow authenticated users to read all users (for admin purposes)
+    match /users/{userId} {
+      allow read: if request.auth != null;
+    }
+    
+    // Allow authenticated users to create new user documents
+    match /users/{document=**} {
+      allow create: if request.auth != null && 
+        request.auth.uid == request.resource.data.uid;
+    }
+    
+    // Test collection for debugging
+    match /test/{document} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // Apartments collection - admins have full access
+    match /apartments/{apartmentId} {
+      allow read: if request.auth != null;
+      allow write, delete: if request.auth != null && isAdmin();
+    }
+    
+    // Payments collection - admins have full access, tenants can read their own
+    match /payments/{paymentId} {
+      allow read: if request.auth != null && 
+        (resource.data.tenantId == request.auth.uid || isAdmin());
+      allow create: if request.auth != null && 
+        (request.resource.data.tenantId == request.auth.uid || isAdmin());
+      allow update, delete: if request.auth != null && isAdmin();
+    }
+    
+    // Allow listing payments - tenants see their own, admins see all
+    match /payments/{document=**} {
+      allow list: if request.auth != null;
+    }
+    
+    // Maintenance collection - admins have full access, tenants can read/create their own
+    match /maintenance/{maintenanceId} {
+      allow read: if request.auth != null && 
+        (resource.data.requestedBy == request.auth.uid || isAdmin());
+      allow create: if request.auth != null && 
+        (request.resource.data.requestedBy == request.auth.uid || isAdmin());
+      allow update, delete: if request.auth != null && isAdmin();
+    }
+    
+    // Allow listing maintenance - tenants see their own, admins see all
+    match /maintenance/{document=**} {
+      allow list: if request.auth != null;
+    }
+  }
+}

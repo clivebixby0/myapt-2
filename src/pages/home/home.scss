@@ -1,0 +1,36 @@
+@import '../../style/colors.scss';
+
+.home {
+  display: flex;
+  background-color: var(--background-secondary);
+
+  .homeContainer {
+    flex: 6;
+
+    .widgets,
+    .charts {
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .charts {
+      padding: 5px 20px;
+    }
+
+    .listContainer {
+      box-shadow: 0 2px 8px var(--shadow-light);
+      padding: 20px;
+      margin: 20px;
+      background-color: var(--background-primary);
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+
+      .listTitle {
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 15px;
+      }
+    }
+  }
+} 

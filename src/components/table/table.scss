@@ -1,0 +1,44 @@
+@import '../../style/colors.scss';
+
+.table {
+  .cellWrapper {
+    display: flex;
+    align-items: center;
+
+    .image {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin-right: 10px;
+      object-fit: cover;
+      border: 2px solid var(--border-color);
+    }
+  }
+
+  .status {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+
+    &.Approved {
+      color: var(--success-color);
+      background-color: rgba(5, 150, 105, 0.1);
+    }
+    &.Pending {
+      color: var(--warning-color);
+      background-color: rgba(217, 119, 6, 0.1);
+    }
+    &.paid {
+      color: var(--success-color);
+      background-color: rgba(5, 150, 105, 0.1);
+    }
+    &.in.progress {
+      color: var(--warning-color);
+      background-color: rgba(217, 119, 6, 0.1);
+    }
+    &.completed {
+      color: var(--success-color);
+      background-color: rgba(5, 150, 105, 0.1);
+    }
+  }
+} 

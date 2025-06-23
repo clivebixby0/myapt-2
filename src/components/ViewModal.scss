@@ -1,0 +1,331 @@
+.view-modal {
+  .MuiDialog-paper {
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .modal-title {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+
+    .title-content {
+      h6 {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1.25rem;
+      }
+    }
+
+    .title-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .refresh-button {
+        color: white;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .rotating {
+          animation: rotate 1s linear infinite;
+        }
+      }
+
+      .close-button {
+        color: white;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .modal-body {
+    padding: 0;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .modal-actions {
+    padding: 16px 24px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+  }
+
+  .modal-content {
+    padding: 24px;
+
+    .user-header,
+    .apartment-header,
+    .payment-header,
+    .maintenance-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+
+      .user-avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .apartment-icon,
+      .payment-icon,
+      .maintenance-icon {
+        width: 60px;
+        height: 60px;
+        padding: 12px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .user-info,
+      .apartment-info,
+      .payment-info,
+      .maintenance-info {
+        flex: 1;
+
+        .user-name,
+        .apartment-title,
+        .payment-title,
+        .maintenance-title {
+          margin: 0 0 4px 0;
+          font-weight: 600;
+          color: #2c3e50;
+        }
+
+        .user-email,
+        .apartment-building,
+        .payment-tenant,
+        .maintenance-apartment {
+          margin: 0;
+          color: #6c757d;
+          font-size: 0.875rem;
+        }
+
+        .role-chip {
+          margin-top: 8px;
+        }
+      }
+    }
+
+    .divider {
+      margin: 24px 0;
+      background-color: #e9ecef;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+
+      .detail-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        border-left: 4px solid #667eea;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #e9ecef;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-icon {
+          color: #667eea;
+          margin-top: 2px;
+          flex-shrink: 0;
+        }
+
+        .detail-label {
+          display: block;
+          color: #6c757d;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          margin-bottom: 4px;
+        }
+
+        p {
+          margin: 0;
+          color: #2c3e50;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .status-section {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #e9ecef;
+
+      .section-title {
+        margin: 0 0 12px 0;
+        color: #2c3e50;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .status-chip {
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      
+      .edit-status-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+        
+        .status-select {
+          min-width: 150px;
+        }
+        
+        .status-buttons {
+          display: flex;
+          gap: 8px;
+        }
+      }
+      
+      .status-display {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        
+        .edit-button {
+          color: #1976d2;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            color: #1565c0;
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Status colors
+.cellWithRole {
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+
+  &.admin {
+    background-color: #d4edda;
+    color: #155724;
+  }
+
+  &.tenant {
+    background-color: #d1ecf1;
+    color: #0c5460;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .view-modal {
+    .modal-content {
+      padding: 16px;
+
+      .details-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .user-header,
+      .apartment-header,
+      .payment-header,
+      .maintenance-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+
+        .user-avatar {
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+        }
+
+        .apartment-icon,
+        .payment-icon,
+        .maintenance-icon {
+          width: 50px;
+          height: 50px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .view-modal {
+    .modal-content {
+      background-color: #1a1a1a;
+      color: #ffffff;
+
+      .details-grid .detail-item {
+        background-color: #2d2d2d;
+        border-left-color: #667eea;
+
+        &:hover {
+          background-color: #3d3d3d;
+        }
+
+        .detail-label {
+          color: #b0b0b0;
+        }
+
+        p {
+          color: #ffffff;
+        }
+      }
+
+      .status-section {
+        background-color: #2d2d2d;
+        border-color: #3d3d3d;
+
+        .section-title {
+          color: #ffffff;
+        }
+      }
+    }
+
+    .modal-actions {
+      background-color: #2d2d2d;
+      border-top-color: #3d3d3d;
+    }
+  }
+} 
